@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">My Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_nume_invalid_it_must_have_minimum_2_characters">Nume invalid.It must have minimum 2 characters</string>
+    <string name="add_prenume_invalid_it_must_have_minimum_2_characters">Prenume invalid.It must have minimum 2 characters</string>
+
+    <string-array name="Ion_Alexandru_valori_spinner">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="Ion_Alexandru_valori_durata">
+        <item>Quick task: Under 1 hour</item>
+        <item>Medium task: Between 1-6 hours</item>
+        <item>Long task: Above 6 hours</item>
+    </string-array>
 </resources>

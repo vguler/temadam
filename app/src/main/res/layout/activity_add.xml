@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/Grigoras_Stefan_bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardview_shadow_end_color"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:elevation="2dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Ion_Alexandru_denumireLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Ion_Alexandru_denumiretxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Ion_Alexandru_descriereLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Ion_Alexandru_denumireLayout"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Ion_Alexandru_descrieretxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/Ion_Alexandru_durataTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/Ion_Alexandru_descriereLayout"
+        android:text="Select task type based on duration"/>
+
+    <Spinner
+        android:id="@+id/Ion_Alexandru_durataSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_below="@id/Ion_Alexandru_durataTextView"
+        android:entries="@array/Ion_Alexandru_valori_durata"/>
+
+    <Spinner
+        android:id="@+id/Ion_Alexandru_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Ion_Alexandru_textview"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:entries="@array/Ion_Alexandru_valori_spinner"/>
+
+    <TextView
+        android:id="@+id/Ion_Alexandru_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Ion_Alexandru_durataSpinner"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Priority" />
+
+    <Button
+        android:id="@+id/Ion_Alexandru_savebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Ion_Alexandru_spinner"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="170dp"
+        android:text="Save" />
+
+    <ImageView
+        android:id="@+id/Grigoras_Stefan_imgGlide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Ion_Alexandru_denumireLayout"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-96dp"
+        app:srcCompat="@drawable/image" />
+
+
+</RelativeLayout>
