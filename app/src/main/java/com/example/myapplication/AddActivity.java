@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import static com.example.myapplication.R.id.bottom_activities;
 import static com.example.myapplication.R.id.bottom_home;
+import static com.example.myapplication.R.id.bottom_timer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,6 +48,14 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
 
         imgGlide = findViewById(R.id.Grigoras_Stefan_imgGlide);
+
+        switchActivities();
+
+        initComponents();
+        intent = getIntent();
+    }
+
+    private void switchActivities(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
         bottomNavigationView.setSelectedItemId(bottom_activities);
 
@@ -69,8 +78,6 @@ public class AddActivity extends AppCompatActivity {
             }
             return false;
         });
-        initComponents();
-        intent = getIntent();
     }
 
     private void initComponents(){

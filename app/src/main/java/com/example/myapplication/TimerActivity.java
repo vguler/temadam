@@ -24,6 +24,10 @@ public class TimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
+        switchActivities();
+    }
+
+    private void switchActivities(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
         bottomNavigationView.setSelectedItemId(bottom_timer);
 

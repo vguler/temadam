@@ -26,10 +26,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(bottom_home);
+        switchActivities();
 
         userDataCallback();
+    }
+
+    private void userDataCallback() {
+        nameView = findViewById(R.id.Ion_Denis_userNameView);
+        surnameView = findViewById(R.id.Ion_Denis_userSurnameView);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(AddSettings.USER_NAME_KEY) && intent.hasExtra(AddSettings.USER_SURNAME_KEY)) {
+            String name = intent.getStringExtra(AddSettings.USER_NAME_KEY);
+            String surname = intent.getStringExtra(AddSettings.USER_SURNAME_KEY);
+
+            if (name != null && surname != null) {
+                nameView.setText(name);
+                surnameView.setText(surname);
+            }
+        }
+    }
+
+    private void switchActivities(){
+        BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(bottom_home);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -50,26 +71,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
-        userDataCallback();
-    }
-
-    private void userDataCallback() {
-        nameView = findViewById(R.id.Ion_Denis_userNameView);
-        surnameView = findViewById(R.id.Ion_Denis_userSurnameView);
-
-        Intent intent = getIntent();
-
-        if (intent.hasExtra(AddSettings.USER_NAME_KEY) && intent.hasExtra(AddSettings.USER_SURNAME_KEY)) {
-            String name = intent.getStringExtra(AddSettings.USER_NAME_KEY);
-            String surname = intent.getStringExtra(AddSettings.USER_SURNAME_KEY);
-
-            if (name != null) {
-                nameView.setText(name);
-            }
-            if (surname != null) {
-                surnameView.setText(surname);
-            }
-        }
     }
 
     public boolean onTouchEvent(MotionEvent touchEvent){

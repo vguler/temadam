@@ -40,6 +40,13 @@ public class AddSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        switchActivities();
+
+        initComponents();
+        intent = getIntent();
+    }
+
+    private void switchActivities(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
         bottomNavigationView.setSelectedItemId(bottom_settings);
 
@@ -62,8 +69,6 @@ public class AddSettings extends AppCompatActivity {
             }
             return false;
         });
-        initComponents();
-        intent = getIntent();
     }
 
     public void initComponents(){

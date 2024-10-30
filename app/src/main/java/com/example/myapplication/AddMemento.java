@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import static com.example.myapplication.R.id.bottom_home;
 import static com.example.myapplication.R.id.bottom_memento;
+import static com.example.myapplication.R.id.bottom_settings;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +24,10 @@ public class AddMemento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_memento);
 
+        switchActivities();
+    }
+
+    private void switchActivities(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
         bottomNavigationView.setSelectedItemId(bottom_memento);
 
