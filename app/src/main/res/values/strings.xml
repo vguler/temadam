@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="add_task_name">Task name</string>
+    <string name="add_select_task_type_based_on_duration">Select task type based on duration</string>
+    <string name="add_task_description">Task description</string>
+    <string name="add_save_task">Save task</string>
+    <string name="add_task_name_must_have_a_minimum_of_3_characters">Task name must have a minimum of 3 characters</string>
+    <string name="add_task_description_must_have_a_minimum_of_10_characters">Task description must have a minimum of 10 characters</string>
+    <string name="add_deadline">Deadline</string>
+    <string-array name="task_type">
+
+        <item>Quick task : Under 1 hour </item>
+        <item>Medium task : Betweeen 1-6 hours </item>
+        <item>Long task : Over 6 hours </item>
+
+    </string-array>
 </resources>
