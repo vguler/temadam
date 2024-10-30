@@ -63,6 +63,9 @@ public class AddActivity extends AppCompatActivity {
             }else if(itemId == R.id.bottom_settings){
                 startActivity(new Intent(getApplicationContext(),AddSettings.class));
                 finish();
+            }else if(itemId == R.id.bottom_timer) {
+                startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                finish();
             }
             return false;
         });

@@ -24,7 +24,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Date;
 
 public class AddSettings extends AppCompatActivity {
-    public static final String USER_KEY = "user_key";
+    public static final String USER_NAME_KEY = "user_name_key";
+    public static final String USER_SURNAME_KEY = "user_surname_key";
+    public static final String USER_BIRTH_KEY = "user_birth_key";
     private TextInputEditText tietNume;
     private TextInputEditText tietPrenume;
     private TextInputEditText tietData;
@@ -54,6 +56,9 @@ public class AddSettings extends AppCompatActivity {
                 finish();
             }else if(itemId == R.id.bottom_settings){
                 return true;
+            }else if(itemId == R.id.bottom_timer) {
+                startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                finish();
             }
             return false;
         });
@@ -67,14 +72,22 @@ public class AddSettings extends AppCompatActivity {
         tietData = findViewById(R.id.Ion_Denis_nastereText);
         saveButton = findViewById(R.id.Ion_Denis_saveButton);
 
-        Intent homeIntent = new Intent(AddSettings.this, MainActivity.class);
-
         saveButton.setOnClickListener(v -> {
             if(isValid()){
-                User user = builUserFromView();
-                intent.putExtra(USER_KEY,user);
-                setResult(RESULT_OK);
-                Log.i("AddSettings","User" + user);
+                //User user = builUserFromView();
+                String name = tietNume.getText().toString();
+                String surname = tietPrenume.getText().toString();
+                Date birthday = eu.ase.ro.damapp.fragments.DateConverter.toDate(tietData.getText().toString());
+
+                Intent homeIntent = new Intent(AddSettings.this, MainActivity.class);
+
+                homeIntent.putExtra(USER_NAME_KEY,name);
+                homeIntent.putExtra(USER_SURNAME_KEY,surname);
+                homeIntent.putExtra(USER_BIRTH_KEY,birthday);
+
+                //setResult(RESULT_OK);
+                Log.i("AddSettings","User" + name + "/" + surname + "/" + birthday);
+
                 startActivity(homeIntent);
                 finish();
             }
@@ -118,7 +131,7 @@ public class AddSettings extends AppCompatActivity {
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
                 if(x1 < x2){
-                    Intent i = new Intent(AddSettings.this, AddMemento.class);
+                    Intent i = new Intent(AddSettings.this, TimerActivity.class);
                     startActivity(i);
                 }else if(x1 > x2){
                     Intent i = new Intent(AddSettings.this, MainActivity.class);

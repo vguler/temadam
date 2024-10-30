@@ -1,8 +1,9 @@
 package com.example.myapplication;
 
 import static com.example.myapplication.R.id.bottom_home;
-import static com.example.myapplication.R.id.bottom_memento;
+import static com.example.myapplication.R.id.bottom_timer;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -15,16 +16,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class AddMemento extends AppCompatActivity {
+public class TimerActivity extends AppCompatActivity {
     float x1,x2,y1,y2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_memento);
+        setContentView(R.layout.activity_timer);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(bottom_memento);
+        bottomNavigationView.setSelectedItemId(bottom_timer);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -35,13 +36,13 @@ public class AddMemento extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),AddActivity.class));
                 finish();
             }else if(itemId == R.id.bottom_memento){
-                return true;
+                startActivity(new Intent(getApplicationContext(),AddMemento.class));
+                finish();
             }else if(itemId == R.id.bottom_settings){
                 startActivity(new Intent(getApplicationContext(),AddSettings.class));
                 finish();
             }else if(itemId == R.id.bottom_timer) {
-                startActivity(new Intent(getApplicationContext(), TimerActivity.class));
-                finish();
+                return true;
             }
             return false;
         });
@@ -57,10 +58,10 @@ public class AddMemento extends AppCompatActivity {
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
                 if(x1 < x2){
-                    Intent i = new Intent(AddMemento.this, AddActivity.class);
+                    Intent i = new Intent(TimerActivity.this, AddMemento.class);
                     startActivity(i);
                 }else if(x1 > x2){
-                    Intent i = new Intent(AddMemento.this, TimerActivity.class);
+                    Intent i = new Intent(TimerActivity.this, AddSettings.class);
                     startActivity(i);
                 }
                 break;

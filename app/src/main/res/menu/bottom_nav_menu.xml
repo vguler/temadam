@@ -14,6 +14,10 @@
         android:title="Memento"
         android:icon="@drawable/baseline_notification_add_24"/>
     <item
+        android:id="@+id/bottom_timer"
+        android:title="Timer"
+        android:icon="@drawable/baseline_av_timer_24" />
+    <item
         android:id="@+id/bottom_settings"
         android:title="Settings"
         android:icon="@drawable/baseline_settings_24"/>

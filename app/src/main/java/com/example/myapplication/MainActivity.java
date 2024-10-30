@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +17,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private ProgressBar progressBar;
     float x1,x2,y1,y2;
+    TextView nameView;
+    TextView surnameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.Grigoras_Stefan_bottomNavigationView);
         bottomNavigationView.setSelectedItemId(bottom_home);
-        progressBar = findViewById(R.id.Grigoras_Stefan_ProgessBar);
+
+        userDataCallback();
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
@@ -41,14 +44,32 @@ public class MainActivity extends AppCompatActivity {
             }else if(itemId == R.id.bottom_settings){
                 startActivity(new Intent(getApplicationContext(),AddSettings.class));
                 finish();
+            }else if(itemId == R.id.bottom_timer) {
+                startActivity(new Intent(getApplicationContext(), TimerActivity.class));
+                finish();
             }
             return false;
         });
-            updateProgressBar(50);
+        userDataCallback();
     }
 
-    private void updateProgressBar(int progress){
-        progressBar.setProgress(progress);
+    private void userDataCallback() {
+        nameView = findViewById(R.id.Ion_Denis_userNameView);
+        surnameView = findViewById(R.id.Ion_Denis_userSurnameView);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(AddSettings.USER_NAME_KEY) && intent.hasExtra(AddSettings.USER_SURNAME_KEY)) {
+            String name = intent.getStringExtra(AddSettings.USER_NAME_KEY);
+            String surname = intent.getStringExtra(AddSettings.USER_SURNAME_KEY);
+
+            if (name != null) {
+                nameView.setText(name);
+            }
+            if (surname != null) {
+                surnameView.setText(surname);
+            }
+        }
     }
 
     public boolean onTouchEvent(MotionEvent touchEvent){
