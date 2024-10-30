@@ -4,22 +4,37 @@ import static com.example.myapplication.R.id.bottom_home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.Clase.Activitate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     float x1,x2,y1,y2;
     TextView nameView;
     TextView surnameView;
+    ActivityResultLauncher<Intent> launcher;
+    List<Activitate> activitateList = new ArrayList<>();
+    ListView lvActivities;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +42,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         switchActivities();
-
         userDataCallback();
+        activitiesDataCallback();
+
+    }
+
+
+    private ActivityResultCallback<ActivityResult> getAddActivitiesCallBack() {
+        return result -> {
+            if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                Activitate activitate = (Activitate) result.getData()
+                        .getSerializableExtra(AddActivity.ACTIVITATE_KEY);
+                if (activitate != null) {
+                    activitateList.add(activitate);
+                    ArrayAdapter<Activitate> adapter = (ArrayAdapter<Activitate>) lvActivities.getAdapter();
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        };
+    }
+
+
+    private void activitiesDataCallback(){
+        lvActivities = findViewById(R.id.Grigoras_Stefan_activitiesLv);
+        //intent = getIntent();
+
+        lvActivities = findViewById(R.id.Grigoras_Stefan_activitiesLv);
+        ArrayAdapter<Activitate> adapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_list_item_1, activitateList);
+        lvActivities.setAdapter(adapter);
+
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                getAddActivitiesCallBack());
     }
 
     private void userDataCallback() {
@@ -57,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
             if(itemId == bottom_home){
                 return true;
             } else if(itemId == R.id.bottom_activities){
-                startActivity(new Intent(getApplicationContext(),AddActivity.class));
-                finish();
+                launcher.launch(new Intent(getApplicationContext(),AddActivity.class));
+                return true;
             }else if(itemId == R.id.bottom_memento){
                 startActivity(new Intent(getApplicationContext(),AddMemento.class));
                 finish();

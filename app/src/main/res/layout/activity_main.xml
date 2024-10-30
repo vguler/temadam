@@ -35,9 +35,22 @@
         android:id="@+id/Ion_Denis_userSurnameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="70dp"
+        android:layout_below="@id/Ion_Denis_userNameView"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="55dp"
         android:text="Prenume" />
+
+    <ListView
+        android:id="@+id/Grigoras_Stefan_activitiesLv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Ion_Denis_userSurnameView"
+        android:layout_above="@id/Grigoras_Stefan_bottomNavigationView"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"/>
 
 </RelativeLayout>

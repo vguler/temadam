@@ -97,6 +97,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Ion_Alexandru_spinner"
+        android:layout_above="@id/Grigoras_Stefan_bottomNavigationView"
+        android:layout_marginBottom="30dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="170dp"
         android:text="Save" />

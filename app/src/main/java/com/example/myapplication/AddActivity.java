@@ -37,6 +37,7 @@ public class AddActivity extends AppCompatActivity {
     Button saveButton;
     private TextInputEditText tietdenumire;
     private TextInputEditText tietdescriere;
+    private TextInputEditText tietTaskDeadline;
     private Spinner prioritateSpinner;
     private Spinner durationSpinner;
     private Intent intent;
@@ -95,7 +96,6 @@ public class AddActivity extends AppCompatActivity {
                 intent.putExtra(ACTIVITATE_KEY,activitate);
                 setResult(RESULT_OK,intent);
                 Log.i("AddActivity","Activitate:" + activitate);
-                startActivity(homeIntent);
                 finish();
             }
         });

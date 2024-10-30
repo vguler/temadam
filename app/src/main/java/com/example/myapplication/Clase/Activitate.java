@@ -11,12 +11,28 @@ public class Activitate implements Serializable {
     private String durata;
     private String prioritate;
 
-    public Activitate(String titlu, String descriere,String durata, String prioritate) {
+    public Activitate(String titlu, String descriere, String durata, String prioritate) {
         this.titlu = titlu;
         this.descriere = descriere;
         this.durata = durata;
         this.prioritate = prioritate;
     }
+
+    @Override
+    public String toString() {
+        // Check if the description is provided (not null and not empty)
+        String result = "Task name: " + titlu;
+
+        if (descriere != null && !descriere.trim().isEmpty()) {
+            result += "\nDescription: " + descriere;
+        }
+
+        result += "\n" + durata +
+                "\nPrioritate: " + prioritate;
+
+        return result;
+    }
+
 
     public String getTitlu() {
         return titlu;
@@ -34,14 +50,6 @@ public class Activitate implements Serializable {
         this.descriere = descriere;
     }
 
-    public String getPrioritate() {
-        return prioritate;
-    }
-
-    public void setPrioritate(String prioritate) {
-        this.prioritate = prioritate;
-    }
-
     public String getDurata() {
         return durata;
     }
@@ -50,12 +58,11 @@ public class Activitate implements Serializable {
         this.durata = durata;
     }
 
-    @Override
-    public String toString() {
-        return "Activitate{" +
-                "titlu='" + titlu + '\'' +
-                ", descriere='" + descriere + '\'' +
-                ", prioritate=" + prioritate +
-                '}';
+    public String getPrioritate() {
+        return prioritate;
+    }
+
+    public void setPrioritate(String prioritate) {
+        this.prioritate = prioritate;
     }
 }

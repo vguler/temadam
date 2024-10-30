@@ -97,12 +97,15 @@
         android:id="@+id/Ion_Denis_saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/Grigoras_Stefan_bottomNavigationView"
         android:layout_below="@+id/Ion_Denis_nastereInput"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="130dp"
         android:layout_marginTop="160dp"
         android:layout_marginEnd="160dp"
+        android:layout_marginBottom="30dp"
+        android:minHeight="48dp"
         android:text="Save" />
 
 
