@@ -8,12 +8,21 @@
     tools:context=".AddMemento">
 
 
+    <CalendarView
+        android:id="@+id/guler_vlad_mem_cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/guler_vlad_tv_events"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Memento"
-        android:textSize="36sp"
-        android:layout_centerInParent="true"/>
+        android:layout_below="@+id/guler_vlad_mem_cv"
+        android:text="Your programmed events:"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+
+    />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
