@@ -11,13 +11,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.myapplication.Clase.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -79,7 +74,6 @@ public class AddSettings extends AppCompatActivity {
 
         saveButton.setOnClickListener(v -> {
             if(isValid()){
-                //User user = builUserFromView();
                 String name = tietNume.getText().toString();
                 String surname = tietPrenume.getText().toString();
                 Date birthday = eu.ase.ro.damapp.fragments.DateConverter.toDate(tietData.getText().toString());
@@ -90,20 +84,12 @@ public class AddSettings extends AppCompatActivity {
                 homeIntent.putExtra(USER_SURNAME_KEY,surname);
                 homeIntent.putExtra(USER_BIRTH_KEY,birthday);
 
-                //setResult(RESULT_OK);
                 Log.i("AddSettings","User" + name + "/" + surname + "/" + birthday);
 
                 startActivity(homeIntent);
                 finish();
             }
         });
-    }
-
-    private User builUserFromView() {
-        String nume = tietNume.getText().toString();
-        String prenume = tietPrenume.getText().toString();
-        Date dataNastere = eu.ase.ro.damapp.fragments.DateConverter.toDate(tietData.getText().toString());
-        return new User(nume,prenume,dataNastere);
     }
 
     private boolean isValid(){

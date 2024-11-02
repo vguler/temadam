@@ -109,7 +109,7 @@ public class AddActivity extends AppCompatActivity {
     }
     public boolean isValid(){
         if(tietdenumire.getText() == null || tietdenumire.getText().toString().trim().length() < 2){
-            Toast.makeText(getApplicationContext(), "Invalid!At least 3 characters.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Invalid denumire!At least 3 characters.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
