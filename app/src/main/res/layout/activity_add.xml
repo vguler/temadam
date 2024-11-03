@@ -60,6 +60,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_below="@+id/Ion_Alexandru_descriereLayout"
+        android:textColor="@color/primary_blue"
         android:text="Select task type based on duration"/>
 
     <Spinner
@@ -90,6 +91,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/primary_blue"
         android:text="Priority" />
 
     <Button
@@ -101,6 +103,7 @@
         android:layout_marginBottom="30dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="170dp"
+        android:backgroundTint="@color/primary_blue"
         android:text="Save" />
 
     <ImageView
