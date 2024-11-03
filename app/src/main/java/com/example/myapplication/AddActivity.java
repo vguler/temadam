@@ -97,6 +97,7 @@ public class AddActivity extends AppCompatActivity {
                 setResult(RESULT_OK,intent);
                 Log.i("AddActivity","Activitate:" + activitate);
                 finish();
+                Toast.makeText(getApplicationContext(), R.string.add_a_new_activity_has_been_added, Toast.LENGTH_SHORT).show();
             }
         });
     }
